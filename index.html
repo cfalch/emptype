@@ -37,6 +37,11 @@
 			areatxt = areatxt.replace('[#00BFFF]', '</span><span style="color:#00BFFF">');
 			document.querySelector('#divtext').innerHTML = `<span>${areatxt}</span>`;
 		}
+		function copyText() {
+			var area = document.querySelector('#area');
+			area.select();
+			document.execCommand('copy');
+		}
 	</script>
 </head>
 <body>
@@ -56,7 +61,7 @@
 			</select>
 		</span>
 	</div>
-	<div class='divtext' id='divtext' name='divtext'>
+	<div class='divtext' id='divtext' name='divtext' onClick='copyText()'>
 	</div>
 	<script>
 		var updateDivDebounced = debounce(function() {
