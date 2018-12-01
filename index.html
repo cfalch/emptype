@@ -2,9 +2,21 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style>
+		.text {
+			margin-top: 15px;
+		}
 		textarea {
-			color: white;
 			width: 100%;
+			font-size: 16px;
+			resize: none;
+			background-size: 100% 100%;
+			padding: 10px 15px;
+			font-family: Verdana;
+		}
+		.divtext {
+			height: 150;
+			border: 1px solid black;
+			color: white;
 			font-size: 16px;
 			resize: none;
 			background-image:url(chat.png);
@@ -17,6 +29,7 @@
 				-1px 1px 0 #000,
 				1px 1px 0 #000;
 			letter-spacing: .5px;
+			line-height: 1.4em;
 		}
 		button {
 			color: #000;
@@ -31,7 +44,7 @@
 			border-radius: 4px;
 			user-select: none
 		}
-		button:focus {
+		button:active {
 			color: #000;
 			background-color: #d9d9d9;
 			border-color: #8b8b8b;
@@ -46,6 +59,21 @@
 		}
 	</style>
 	<script>
+		function debounce(func, wait, immediate) {
+			var timeout;
+  		return function executedFunction() {
+	    var context = this;
+	    var args = arguments;
+    	var later = function() {
+      	timeout = null;
+      	if (!immediate) func.apply(context, args);
+    	};
+    	var callNow = immediate && !timeout;
+    	clearTimeout(timeout);
+    	timeout = setTimeout(later, wait);
+    	if (callNow) func.apply(context, args);
+  		};
+		};
 		function addColor() {
 			var area = document.querySelector('#area');
 			var color = document.querySelector('#picker').value;
@@ -55,12 +83,21 @@
         area.value = area.value.substring(0, startPos)
             + color
             + area.value.substring(endPos, area.value.length);
+			updateDiv();
+		}
+		function updateDiv() {
+
+			// TODO: Update this routine to find all the colors and replace them with styled spans
+
+			var areatxt = document.querySelector('#area').value;
+			areatxt = areatxt.replace('[#00BFFF]', '</span><span style="color:#00BFFF">');
+			document.querySelector('#divtext').innerHTML = `<span>${areatxt}</span>`;
 		}
 	</script>
 </head>
 <body>
 	<div class='text'>
-		<textarea id='area' name='area' cols='2' rows='10'></textarea>
+		<textarea id='area' name='area' cols='2' rows='8''></textarea>
 	</div>
 	<div class='controls'>
 		<span>
@@ -75,5 +112,13 @@
 			</select>
 		</span>
 	</div>
+	<div class='divtext' id='divtext' name='divtext'>
+	</div>
+	<script>
+		var updateDivDebounced = debounce(function() {
+			updateDiv();
+		}, 750);
+		window.addEventListener('keyup', updateDivDebounced);
+	</script>
 </body>
 </html>
