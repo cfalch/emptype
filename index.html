@@ -2,16 +2,26 @@
 <head>
 	<style>
 		textarea {
+			color: white;
 			width: 100%;
 			resize: none;
+			background-image:url(chat.png);
+			background-size: 100% 100%;
+			padding: 10px 15px;
+			font-family: Verdana;
+			text-shadow:
+				-1px -1px 0 #000,
+				1px -1px 0 #000,
+				-1px 1px 0 #000,
+				1px 1px 0 #000;
+			letter-spacing: .5px;
 		}
 		button {
 			color: #000;
 			background-color: #F2F2F2;
-			border-color: #CBCBCB;
+			border: 1px solid #CBCBCB;
 			min-width: 90px;
 			display: inline-block;
-			vertical-align: middle;
 			touch-action: manipulation;
 			padding: 6px 12px;
 			font-size: 14px;
@@ -34,8 +44,10 @@
 		}
 	</style>
 	<script>
-		function addColor(color) {
+		function addColor() {
 			var area = document.querySelector('#area');
+			var color = document.querySelector('#picker').value;
+
 			var startPos = area.selectionStart;
         var endPos = area.selectionEnd;
         area.value = area.value.substring(0, startPos)
@@ -49,6 +61,15 @@
 		<textarea id='area' name='area' rows='10'></textarea>
 	</div>
 	<div class='controls'>
-		<button onClick='addColor("blue")'>Add Color</button>
+		<span>
+			<button onClick='addColor("blue")'>Add Color</button>
+		</span>
+		<span>
+			<select id='picker' name='picker'>
+				<option value='[#FFFFFF]'>White</option>
+				<option value='[#00BFFF]'>DeepSkyBlue</option>
+				<option value='[#2E8B57]'>SeaGreen</option>
+				<option value='[#B22222]'>FireBrick</option>
+			</select>
 </body>
 </html>
