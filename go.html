@@ -1,0 +1,54 @@
+<html>
+<head>
+	<style>
+		textarea {
+			width: 100%;
+			resize: none;
+		}
+		button {
+			color: #000;
+			background-color: #F2F2F2;
+			border-color: #CBCBCB;
+			min-width: 90px;
+			display: inline-block;
+			vertical-align: middle;
+			touch-action: manipulation;
+			padding: 6px 12px;
+			font-size: 14px;
+			line-height: 1.42857;
+			border-radius: 4px;
+			user-select: none
+		}
+		button:focus {
+			color: #000;
+			background-color: #d9d9d9;
+			border-color: #8b8b8b;
+		}
+		@media (min-width: 515px) {
+			textarea {
+				width: 500px;
+			}
+		}
+		.controls {
+			margin: 15px 5px;
+		}
+	</style>
+	<script>
+		function addColor(color) {
+			var area = document.querySelector('#area');
+			var startPos = area.selectionStart;
+        var endPos = area.selectionEnd;
+        area.value = area.value.substring(0, startPos)
+            + color
+            + area.value.substring(endPos, area.value.length);
+		}
+	</script>
+</head>
+<body>
+	<div class='text'>
+		<textarea id='area' name='area' rows='10'></textarea>
+	</div>
+	<div class='controls'>
+		<button onClick='addColor("blue")'>Add Color</button>
+</body>
+</html>
