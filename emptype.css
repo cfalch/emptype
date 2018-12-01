@@ -1,0 +1,57 @@
+.text {
+	margin-top: 15px;
+}
+textarea {
+	resize: none;
+	background-size: 100% 100%;
+	width: 100%;
+}
+.divtext {
+	height: 150;
+	border: 1px solid black;
+	color: white;
+	resize: none;
+	background-image:url(chat.png);
+	background-size: 100% 100%;
+	text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+	letter-spacing: .5px;
+	line-height: 1.4em;
+}
+textarea, .divtext {
+	padding: 10px 15px;
+	font-size: 16px;
+	font-family: Verdana;
+}
+button {
+	color: #000;
+	background-color: #F2F2F2;
+	border: 1px solid #CBCBCB;
+	min-width: 90px;
+	display: inline-block;
+	touch-action: manipulation;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857;
+	border-radius: 4px;
+	user-select: none
+}
+button:active {
+	color: #000;
+	background-color: #d9d9d9;
+	border-color: #8b8b8b;
+}
+@media (min-width: 615px) {
+	textarea {
+		width: 600px;
+	}
+	.divtext {
+		width: 568;
+	}
+}
+.controls {
+	margin: 15px 5px;
+}
