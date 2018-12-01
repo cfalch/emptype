@@ -26,13 +26,14 @@ textarea, .divtext {
 	font-size: 16px;
 	font-family: Verdana;
 }
-button {
+button, .picker	 {
 	color: #000;
 	background-color: #F2F2F2;
 	border: 1px solid #CBCBCB;
 	min-width: 90px;
 	display: inline-block;
 	touch-action: manipulation;
+	height: 34px;
 	padding: 6px 12px;
 	font-size: 14px;
 	line-height: 1.42857;
@@ -43,6 +44,9 @@ button:active {
 	color: #000;
 	background-color: #d9d9d9;
 	border-color: #8b8b8b;
+}
+.picker {
+	min-width: 150px;
 }
 @media (min-width: 615px) {
 	textarea {
