@@ -9,18 +9,18 @@ var GLYPHS = [
 	'think', 'thumbsdown', 'thumbsup', 'tongue'
 ];
 var COLORS = {
-	'White': '[#FFFFFF]',
-	'DeepSkyBlue': '[#00BFFF]',
-	'SeaGreen': '[#2E8B57]',
-	'Red': '[#FF0000]',
-	'Orange': '[#FFA500]',
-	'Gold': '[#FFD700]',
-	'DarkOrange': '[#FF8C00]',
-	'Yellow': '[#FFFF00]',
-	'Lime': '[#00FF00]',
-	'Aqua': '[#00FFFF]',
-	'Fuchsia': '[#FF00FF]',
-	'DodgerBlue': '[#1E90FF]'
+'Aqua': '[#00FFFF]',
+'DarkOrange': '[#FF8C00]',
+'DeepSkyBlue': '[#00BFFF]',
+'DodgerBlue': '[#1E90FF]',
+'Fuchsia': '[#FF00FF]',
+'Gold': '[#FFD700]',
+'Lime': '[#00FF00]',
+'Orange': '[#FFA500]',
+'Red': '[#FF0000]',
+'SeaGreen': '[#2E8B57]',
+'White': '[#FFFFFF]',
+'Yellow': '[#FFFF00]'
 };
 var ASCII = [
 	'¯\\_(ツ)_/¯', 'ツ', '☃'
