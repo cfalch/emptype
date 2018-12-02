@@ -11,7 +11,7 @@ textarea {
 	border: 1px solid black;
 	color: white;
 	resize: none;
-	background-image:url(chat.png);
+	background-image:url(../img/chat.png);
 	background-size: 100% 100%;
 	text-shadow:
 		-1px -1px 0 #000,
@@ -62,4 +62,14 @@ button:active {
 }
 .controls {
 	margin: 15px 0;
+}
+
+#modalTrigger {
+	cursor: pointer;
+	display: inline-block;
+	margin: 20px;
+}
+
+.glyphs-ref-img {
+	width: 100%;
 }

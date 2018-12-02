@@ -1,8 +1,8 @@
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="emptype.css">
-	<script type="text/javascript" src="constants.js" charset="UTF-8"></script>   
+	<link rel="stylesheet" type="text/css" href="styles/emptype.css">
+	<link rel="stylesheet" type="text/css" href="styles/modal.css">
 	<script>
 		function debounce(func, wait, immediate) {
 			var timeout;
@@ -55,7 +55,7 @@
 			GLYPHS.forEach(glyph => {
 				var ix = areatxt.indexOf(`:${glyph}:`);
 				if (ix >= 0) {
-					var imgsrc = `img/${glyph}.png`;
+					var imgsrc = `img/glyphs/${glyph}.png`;
 					areatxt = areatxt.replace(new RegExp(`:${glyph}:`, 'g'), `<img src=${imgsrc}>`);
 				}
 			});
@@ -111,6 +111,19 @@
 	</div>
 	<div class='divtext' id='divtext' name='divtext' onClick='copyText()'>
 	</div>
+
+	<div id="modalTrigger"><img src='img/glyphs/richard.png'></div>
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+	  <!-- Modal content -->
+	  <div class="modal-content">
+	    <span class="close">&times;</span>
+	    <img class='glyphs-ref-img' src='img/glyphs-ref.jpg'></div>
+	  </div>
+	</div>
+
+	<script type="text/javascript" src="script/constants.js" charset="UTF-8"></script>
+	<script type="text/javascript" src="script/modal.js"></script> 
 	<script>
 		initColorSelect();
 		initGlyphSelect();
