@@ -31,11 +31,13 @@
 			area.focus();
 		}
 		function updateDiv() {
-
-			// TODO: Update this routine to find all the colors and replace them with styled spans
-
 			var areatxt = document.querySelector('#area').value;
-			areatxt = areatxt.replace('[#00BFFF]', '</span><span style="color:#00BFFF">');
+			while (areatxt.indexOf('[') >= 0) {
+				var start = areatxt.indexOf('[');
+				var end = areatxt.indexOf(']');
+				var colorHex = areatxt.substring(start + 1, end);
+				areatxt = areatxt.replace(/\[.*?\]/, `</span><span style="color:${colorHex}">`)
+			}
 			document.querySelector('#divtext').innerHTML = `<span>${areatxt}</span>`;
 		}
 		function copyText() {
