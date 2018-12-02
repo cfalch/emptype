@@ -2,48 +2,89 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="emptype.css">
+	<script type="text/javascript" src="constants.js" charset="UTF-8"></script>   
 	<script>
 		function debounce(func, wait, immediate) {
 			var timeout;
   		return function executedFunction() {
-	    var context = this;
-	    var args = arguments;
-    	var later = function() {
-      	timeout = null;
-      	if (!immediate) func.apply(context, args);
-    	};
-    	var callNow = immediate && !timeout;
-    	clearTimeout(timeout);
-    	timeout = setTimeout(later, wait);
-    	if (callNow) func.apply(context, args);
+		    var context = this;
+		    var args = arguments;
+	    	var later = function() {
+	      	timeout = null;
+	      	if (!immediate) {
+	      		func.apply(context, args);
+	      	}
+	    	};
+	    	var callNow = immediate && !timeout;
+	    	clearTimeout(timeout);
+	    	timeout = setTimeout(later, wait);
+	    	if (callNow) {
+	    		func.apply(context, args);
+	    	}
   		};
 		};
 		function addColor() {
+			addSelectedValue(document.querySelector('#colors').value);
+		}
+		function addGlyph() {
+			addSelectedValue(document.querySelector('#glyphs').value);
+		}
+		function addAsciiEmoji() {
+			addSelectedValue(document.querySelector('#ascii').value);
+		}
+		function addSelectedValue(valueToAdd) {
 			var area = document.querySelector('#area');
-			var color = document.querySelector('#picker').value;
-
 			var startPos = area.selectionStart;
         var endPos = area.selectionEnd;
         area.value = area.value.substring(0, startPos)
-            + color
+            + valueToAdd
             + area.value.substring(endPos, area.value.length);
 			updateDiv();
 			area.focus();
 		}
 		function updateDiv() {
 			var areatxt = document.querySelector('#area').value;
+			// Look for colors to replace:
 			while (areatxt.indexOf('[') >= 0) {
 				var start = areatxt.indexOf('[');
 				var end = areatxt.indexOf(']');
 				var colorHex = areatxt.substring(start + 1, end);
 				areatxt = areatxt.replace(/\[.*?\]/, `</span><span style="color:${colorHex}">`)
 			}
+			// Look for glyphs to replace:
+			GLYPHS.forEach(glyph => {
+				var ix = areatxt.indexOf(`:${glyph}:`);
+				if (ix >= 0) {
+					var imgsrc = `img/${glyph}.png`;
+					areatxt = areatxt.replace(new RegExp(`:${glyph}:`, 'g'), `<img src=${imgsrc}>`);
+				}
+			});
 			document.querySelector('#divtext').innerHTML = `<span>${areatxt}</span>`;
 		}
 		function copyText() {
 			var area = document.querySelector('#area');
 			area.select();
 			document.execCommand('copy');
+		}
+		function initGlyphSelect() {
+			var select = document.querySelector('#glyphs');
+			GLYPHS.forEach(glyph => {
+				select.options[select.options.length] = new Option(glyph, `:${glyph}:`);
+			});
+		}
+		function initColorSelect() {
+			var select = document.querySelector('#colors');
+			for (var color in COLORS) {
+    		if (COLORS.hasOwnProperty(color)) {
+    			select.options[select.options.length] = new Option(color, COLORS[color]);
+				}
+			}
+		}
+		function initAsciiSelect() {
+			var select = document.querySelector('#ascii');
+			ASCII.forEach(ascii => {
+				select.options[select.options.length] = new Option(ascii, ascii);
+			});
 		}
 	</script>
 </head>
@@ -53,25 +94,27 @@
 	</div>
 	<div class='controls'>
 		<span>
-			<select class='picker' id='picker' name='picker' onChange='addColor()'>
-				<option value='[#FFFFFF]'>White</option>
-				<option value='[#00BFFF]'>DeepSkyBlue</option>
-				<option value='[#2E8B57]'>SeaGreen</option>
-				<option value='[#FF0000]'>Red</option>
-				<option value='[#FFA500]'>Orange</option>
-				<option value='[#FFD700]'>Gold</option>
-				<option value='[#FF8C00]'>DarkOrange</option>
-				<option value='[#FFFF00]'>Yellow</option>
-				<option value='[#00FF00]'>Lime</option>
-				<option value='[#00FFFF]'>Aqua</option>
-				<option value='[#FF00FF]'>Fuchsia</option>
-				<option value='[#1E90FF]'>DodgerBlue</option>
+			<select class='colors' id='colors' name='colors' onChange='addColor()'>
+				<option disabled selected>Change Color</option>
+			</select>
+		</span>
+		<span>
+			<select class='glyphs' id='glyphs' name='glyphs' onChange='addGlyph()'>
+				<option disabled selected>Add a Glyph</option>
+			</select>
+		</span>
+		<span>
+			<select class='ascii' id='ascii' name='ascii' onChange='addAsciiEmoji()'>
+				<option disabled selected>Add ASCII Emoji</option>
 			</select>
 		</span>
 	</div>
 	<div class='divtext' id='divtext' name='divtext' onClick='copyText()'>
 	</div>
 	<script>
+		initColorSelect();
+		initGlyphSelect();
+		initAsciiSelect();
 		var updateDivDebounced = debounce(function() {
 			updateDiv();
 		}, 750);
