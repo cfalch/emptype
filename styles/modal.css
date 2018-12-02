@@ -27,11 +27,12 @@
     float: right;
     font-size: 28px;
     font-weight: bold;
+    padding: 15px; /* enlarge clickable region for mobile */
 }
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: #b99055;
     text-decoration: none;
     cursor: pointer;
 }
