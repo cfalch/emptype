@@ -1,3 +1,4 @@
+// All glyphs
 var GLYPHS = [
 	'alien', 'angry', 'axe', 'axes', 'blush', 'bunny', 'butterfly', 'butterflyblue', 
 	'cake', 'cat', 'catgrey', 'coffee', 'cool', 'crying', 'dog', 'donut', 'elementdark', 
@@ -7,6 +8,12 @@ var GLYPHS = [
 	'mage', 'magered', 'monocle', 'palmtree', 'pizza', 'richard', 'rofl', 'rolleyes', 'sad', 
 	'skull', 'smile', 'splash', 'staff', 'star', 'sunflower', 'sword', 'swords', 'teardrop', 
 	'think', 'thumbsdown', 'thumbsup', 'tongue'
+];
+// Subset of glyphs, used for the reference link
+var GLYPH_REF = [
+	'alien', 'axe', 'axes', 'cat', 'catgrey', 'elementdark', 'elementfire', 'elementholy',
+	'elementice', 'elementnature', 'fire', 'fox', 'ghost', 'hammer', 'helmet', 'lightning',
+	'mage', 'magered', 'richard', 'skull', 'staff', 'sword', 'swords'
 ];
 var COLORS = {
 'Aqua': '[#00FFFF]',

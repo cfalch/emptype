@@ -81,7 +81,7 @@ function initAsciiSelect() {
 	});
 }
 function randomGlyph() {
-	const shuffled = shuffle(GLYPHS);
+	const shuffled = shuffle(GLYPH_REF);
 	const glyph = random(shuffled);
 	return `img/glyphs/${glyph}.png`;
 }
