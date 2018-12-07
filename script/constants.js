@@ -30,5 +30,5 @@ var COLORS = {
 'Yellow': '[#FFFF00]'
 };
 var ASCII = [
-	'¯\\_(ツ)_/¯', 'ツ', '☃'
+	'¯\\_(ツ)_/¯', 'ツ', '\\(^-^)/'
 ]; // more at http://asciimoji.com/
