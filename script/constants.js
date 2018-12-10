@@ -19,7 +19,7 @@ var COLORS = {
 'Aqua': '[#00FFFF]',
 'DarkOrange': '[#FF8C00]',
 'DeepSkyBlue': '[#00BFFF]',
-'DodgerBlue': '[#1E90FF]',
+'SystemBlue': '[A5D9FD',
 'Fuchsia': '[#FF00FF]',
 'Gold': '[#FFD700]',
 'Lime': '[#00FF00]',
