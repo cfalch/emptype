@@ -19,16 +19,16 @@ var COLORS = {
 'Aqua': '[#00FFFF]',
 'DarkOrange': '[#FF8C00]',
 'DeepSkyBlue': '[#00BFFF]',
-'SystemBlue': '[A5D9FD',
 'Fuchsia': '[#FF00FF]',
 'Gold': '[#FFD700]',
 'Lime': '[#00FF00]',
 'Orange': '[#FFA500]',
 'Red': '[#FF0000]',
 'SeaGreen': '[#2E8B57]',
+'SystemBlue': '[A5D9FD]',
 'White': '[#FFFFFF]',
 'Yellow': '[#FFFF00]'
 };
 var ASCII = [
-	'¯\\_(ツ)_/¯', 'ツ', '\\(^-^)/', '(✖╭╮✖)'
+	'¯\\_(ツ)_/¯', 'ツ', '\\(^-^)/', '(✖╭╮✖)', '( ͡° ͜ʖ ͡°)'
 ]; // more at http://asciimoji.com/
