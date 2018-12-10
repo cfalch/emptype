@@ -25,6 +25,7 @@ var COLORS = {
 'Orange': '[#FFA500]',
 'Red': '[#FF0000]',
 'SeaGreen': '[#2E8B57]',
+'Seashell': '[#EEE5DE]',
 'SystemBlue': '[A5D9FD]',
 'White': '[#FFFFFF]',
 'Yellow': '[#FFFF00]'
@@ -35,5 +36,7 @@ var ASCII = [ // more at http://asciimoji.com/
 	'\\(^-^)/',
 	'(✖╭╮✖)',
 	'( ͡° ͜ʖ ͡°)',
-	'✌(-‿-)✌'
+	'✌(-‿-)✌',
+	'(◔_◔)',
+	'ᕙ(⇀‸↼‶)ᕗ'
 ];
