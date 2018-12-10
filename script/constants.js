@@ -29,6 +29,11 @@ var COLORS = {
 'White': '[#FFFFFF]',
 'Yellow': '[#FFFF00]'
 };
-var ASCII = [
-	'¯\\_(ツ)_/¯', 'ツ', '\\(^-^)/', '(✖╭╮✖)', '( ͡° ͜ʖ ͡°)'
-]; // more at http://asciimoji.com/
+var ASCII = [ // more at http://asciimoji.com/
+	'¯\\_(ツ)_/¯',
+	'ツ',
+	'\\(^-^)/',
+	'(✖╭╮✖)',
+	'( ͡° ͜ʖ ͡°)',
+	'✌(-‿-)✌'
+];
