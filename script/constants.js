@@ -26,7 +26,9 @@ var COLORS = {
 'Red': '[#FF0000]',
 'SeaGreen': '[#2E8B57]',
 'Seashell': '[#EEE5DE]',
-'SystemBlue': '[A5D9FD]',
+'SystemBlue': '[#A5D9FD]',
+'SystemTeal': '[#2DFFFF]',
+'SystemYellow': '[#FFFF39]',
 'White': '[#FFFFFF]',
 'Yellow': '[#FFFF00]'
 };

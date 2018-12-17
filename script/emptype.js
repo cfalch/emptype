@@ -39,11 +39,12 @@ function addSelectedValue(valueToAdd) {
 function updateDiv() {
 	var areatxt = document.querySelector('#area').value;
 	// Look for colors to replace:
-	while (areatxt.indexOf('[') >= 0) {
-		var start = areatxt.indexOf('[');
-		var end = areatxt.indexOf(']');
+	while (areatxt.indexOf('[#') >= 0) {
+		var start = areatxt.indexOf('[#');
+		// Find ']' after start index
+		var end = areatxt.substring(start).indexOf(']') + start;
 		var colorHex = areatxt.substring(start + 1, end);
-		areatxt = areatxt.replace(/\[.*?\]/, `</span><span style="color:${colorHex}">`)
+		areatxt = areatxt.replace(/\[#.*?\]/, `</span><span style="color:${colorHex}">`)
 	}
 	// Look for glyphs to replace:
 	GLYPHS.forEach(glyph => {
